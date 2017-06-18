@@ -31,11 +31,15 @@ public class BowlingGameTest {
 	@Test
 	public void testOneSpare() {
 		Game g = new Game();
-		g.roll(5);
-	    g.roll(5); 
+		rollSpare(g);
 		g.roll(3);
 		rollMany(17, 0, g);
 		assertEquals(16, g.score());
 	}
+	
+	private void rollSpare(Game g) {
+	    g.roll(5);
+	    g.roll(5);
+	  }
 
 }
