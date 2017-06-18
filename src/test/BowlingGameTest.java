@@ -36,25 +36,31 @@ public class BowlingGameTest {
 		rollMany(17, 0, g);
 		assertEquals(16, g.score());
 	}
-	
+
 	@Test
 	public void testOneStrike() {
 		Game g = new Game();
 		rollStrike(g);
-	    g.roll(3);
-	    g.roll(4);
-	    rollMany(16, 0, g);
-	    assertEquals(24, g.score());
+		g.roll(3);
+		g.roll(4);
+		rollMany(16, 0, g);
+		assertEquals(24, g.score());
 	}
-	
-	private void rollStrike(Game g) {
-	    g.roll(10); 
-	  }
 
-	
+	@Test
+	public void testPerfectGame() {
+		Game g = new Game();
+		rollMany(12, 10, g);
+		assertEquals(300, g.score());
+	}
+
+	private void rollStrike(Game g) {
+		g.roll(10);
+	}
+
 	private void rollSpare(Game g) {
-	    g.roll(5);
-	    g.roll(5);
-	  }
+		g.roll(5);
+		g.roll(5);
+	}
 
 }
